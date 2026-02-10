@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume & Portfolio Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app">
+    <h1>AI Resume & Portfolio Builder</h1>
+
+   <form method="POST">
+    <div class="row">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="education" placeholder="Education" required>
+    </div>
+
+    <div class="row">
+        <input type="text" name="skills" placeholder="Skills (comma separated)" required>
+
+        <select name="role" required>
+            <option value="">Select Role</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Core Engineer">Core Engineer</option>
+            <option value="Internship">Internship</option>
+        </select>
+    </div>
+
+    <textarea name="projects" placeholder="Projects" required></textarea>
+
+    <button type="submit">Generate Resume</button>
+</form>
+
+{% if resume %}
+<div class="output">
+    <h2>Generated Resume</h2>
+    <pre>{{ resume }}</pre>
+
+    <form method="POST" action="/download">
+        <input type="hidden" name="resume" value="{{ resume }}">
+        <button type="submit">Download PDF</button>
+    </form>
+</div>
+{% endif %}
+
+
+</body>
+</html>
