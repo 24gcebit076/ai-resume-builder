@@ -1,509 +1,610 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #070b16;
+    color: #ffffff;
+    min-height: 100vh;
+}
 
-<head>
+.page {
+    min-height: 100vh;
 
-    <meta charset="UTF-8">
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(67, 97, 238, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(124, 58, 237, 0.12),
+            transparent 30%
+        ),
+        #070b16;
+}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
 
-    <title>AI Resume & Portfolio Builder</title>
+/* ================= HEADER ================= */
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+.header {
+    max-width: 1150px;
+    margin: auto;
+    padding: 25px;
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+.logo span {
+    color: #6384ff;
+}
 
-</head>
+.header p {
+    margin-top: 5px;
+    color: #8d96aa;
+    font-size: 13px;
+}
 
+.header-badge {
+    padding: 9px 16px;
 
-<body>
+    border: 1px solid rgba(99, 132, 255, 0.3);
+    border-radius: 30px;
 
-<div class="page">
+    background: rgba(99, 132, 255, 0.08);
 
-    <!-- NAVBAR -->
+    color: #9eb0ff;
+    font-size: 13px;
+}
 
-    <nav class="navbar">
 
-        <div class="brand">
+/* ================= MAIN ================= */
 
-            <div class="brand-icon">
-                ✦
-            </div>
+.container {
+    width: min(100% - 40px, 950px);
+    margin: auto;
+    padding: 45px 0 70px;
+}
 
-            <div>
-                <h2>AI Resume</h2>
-                <span>Builder</span>
-            </div>
 
-        </div>
+/* ================= HERO ================= */
 
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
 
-        <div class="nav-badge">
-            ✨ AI Powered
-        </div>
+.ai-icon {
+    width: 65px;
+    height: 65px;
 
-    </nav>
+    margin: 0 auto 20px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    font-size: 30px;
 
-    <!-- HERO -->
+    border-radius: 20px;
 
-    <section class="hero">
+    background: linear-gradient(
+        135deg,
+        #526dff,
+        #7c3aed
+    );
 
-        <div class="hero-badge">
-            🚀 Build Your Career Faster
-        </div>
+    box-shadow:
+        0 15px 40px rgba(79, 70, 229, 0.35);
+}
 
-        <h1>
-            Create Your
-            <span>Perfect Resume</span>
-            With AI
-        </h1>
+.hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
 
-        <p>
-            Generate a professional, ATS-friendly resume
-            tailored to your dream job in seconds.
-        </p>
+    line-height: 1.05;
 
-    </section>
+    font-weight: 800;
 
+    letter-spacing: -2px;
+}
 
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #6384ff,
+        #a78bfa
+    );
 
-    <!-- FORM -->
+    -webkit-background-clip: text;
 
-    <main class="main-container">
+    background-clip: text;
 
-        <div class="form-card">
+    color: transparent;
+}
 
-            <div class="card-top">
+.hero p {
+    max-width: 600px;
 
-                <div>
+    margin: 20px auto 0;
 
-                    <span class="section-number">
-                        01
-                    </span>
+    color: #9299aa;
 
-                    <h2>
-                        Tell us about yourself
-                    </h2>
+    font-size: 16px;
 
-                    <p>
-                        Enter your details and let AI create your resume.
-                    </p>
+    line-height: 1.7;
+}
 
-                </div>
 
-            </div>
+/* ================= FORM CARD ================= */
 
+.card {
+    padding: 35px;
 
-            <form method="POST">
+    border: 1px solid #1d2538;
 
+    border-radius: 22px;
 
-                <!-- NAME + EDUCATION -->
+    background: rgba(14, 19, 34, 0.88);
 
-                <div class="input-row">
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+}
 
-                    <div class="input-box">
+.card-header {
+    display: flex;
 
-                        <label>
-                            Full Name
-                        </label>
+    justify-content: space-between;
 
-                        <div class="input-wrapper">
+    align-items: center;
 
-                            <span class="input-icon">
-                                👤
-                            </span>
+    margin-bottom: 30px;
+}
 
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Abhishek Patel"
-                                required
-                            >
+.card-header h2 {
+    font-size: 22px;
+}
 
-                        </div>
+.card-header p {
+    color: #7e879b;
 
-                    </div>
+    font-size: 13px;
 
+    margin-top: 6px;
+}
 
-                    <div class="input-box">
+.step {
+    width: 45px;
+    height: 45px;
 
-                        <label>
-                            Education
-                        </label>
+    display: flex;
 
-                        <div class="input-wrapper">
+    align-items: center;
+    justify-content: center;
 
-                            <span class="input-icon">
-                                🎓
-                            </span>
+    border-radius: 12px;
 
-                            <input
-                                type="text"
-                                name="education"
-                                placeholder="B.Tech Information Technology"
-                                required
-                            >
+    background: #151c30;
 
-                        </div>
+    color: #7187ff;
 
-                    </div>
+    font-weight: 700;
+}
 
-                </div>
 
+/* ================= FORM ================= */
 
+.form-row {
+    display: grid;
 
-                <!-- SKILLS + ROLE -->
+    grid-template-columns: 1fr 1fr;
 
-                <div class="input-row">
+    gap: 20px;
+}
 
-                    <div class="input-box">
+.form-group {
+    margin-bottom: 22px;
+}
 
-                        <label>
-                            Skills
-                        </label>
+label {
+    display: block;
 
-                        <div class="input-wrapper">
+    margin-bottom: 9px;
 
-                            <span class="input-icon">
-                                ⚡
-                            </span>
+    color: #dce1ec;
 
-                            <input
-                                type="text"
-                                name="skills"
-                                placeholder="Java, Python, SQL, AI/ML"
-                                required
-                            >
+    font-size: 13px;
 
-                        </div>
+    font-weight: 600;
+}
 
-                        <small>
-                            Example: Java, Python, SQL, Machine Learning
-                        </small>
+input,
+select,
+textarea {
+    width: 100%;
 
-                    </div>
+    border: 1px solid #293248;
 
+    border-radius: 12px;
 
-                    <div class="input-box">
+    background: #0b1020;
 
-                        <label>
-                            Target Role
-                        </label>
+    color: white;
 
-                        <div class="input-wrapper">
+    padding: 14px 15px;
 
-                            <span class="input-icon">
-                                💼
-                            </span>
+    outline: none;
 
-                            <select
-                                name="role"
-                                required
-                            >
+    font-family: inherit;
 
-                                <option value="">
-                                    Select your role
-                                </option>
+    font-size: 14px;
 
-                                <option value="Software Developer">
-                                    Software Developer
-                                </option>
+    transition: 0.25s;
+}
 
-                                <option value="Data Analyst">
-                                    Data Analyst
-                                </option>
+input::placeholder,
+textarea::placeholder {
+    color: #586176;
+}
 
-                                <option value="Core Engineer">
-                                    Core Engineer
-                                </option>
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #637eff;
 
-                                <option value="Internship">
-                                    Internship
-                                </option>
+    box-shadow:
+        0 0 0 3px rgba(99, 126, 255, 0.12);
+}
 
-                            </select>
+textarea {
+    resize: vertical;
 
-                        </div>
+    min-height: 150px;
+}
 
-                    </div>
+small {
+    display: block;
 
-                </div>
+    margin-top: 7px;
 
+    color: #606a7e;
 
+    font-size: 11px;
+}
 
-                <!-- PROJECT -->
 
-                <div class="input-box project-box">
+/* ================= GENERATE BUTTON ================= */
 
-                    <label>
-                        Projects
-                    </label>
+.generate-btn {
+    width: 100%;
 
-                    <div class="textarea-wrapper">
+    padding: 16px;
 
-                        <span class="textarea-icon">
-                            🚀
-                        </span>
+    border: none;
 
-                        <textarea
-                            name="projects"
-                            placeholder="Describe your projects, technologies used, features and achievements..."
-                            required
-                        ></textarea>
+    border-radius: 12px;
 
-                    </div>
+    background: linear-gradient(
+        135deg,
+        #536dff,
+        #7045d8
+    );
 
-                    <small>
-                        Add your best projects to make your resume stronger.
-                    </small>
+    color: white;
 
-                </div>
+    font-size: 15px;
 
+    font-weight: 700;
 
+    cursor: pointer;
 
-                <!-- BUTTON -->
+    display: flex;
 
-                <button
-                    type="submit"
-                    class="generate-button"
-                >
+    align-items: center;
 
-                    <span>
-                        ✨
-                    </span>
+    justify-content: center;
 
-                    Generate My Resume
+    gap: 12px;
 
-                    <strong>
-                        →
-                    </strong>
+    transition: 0.25s;
+}
 
-                </button>
+.generate-btn:hover {
+    transform: translateY(-2px);
 
-            </form>
+    box-shadow:
+        0 12px 30px rgba(83, 109, 255, 0.3);
+}
 
-        </div>
+.arrow {
+    font-size: 20px;
+}
 
 
+/* ================= CONTACT ================= */
 
-        <!-- CONTACT -->
+.contact-section {
+    margin-top: 55px;
+}
 
-        <section class="connect-section">
+.contact-heading {
+    display: flex;
 
-            <div class="section-title">
+    align-items: center;
 
-                <span></span>
+    gap: 15px;
 
-                <h3>
-                    Connect With Me
-                </h3>
+    justify-content: center;
 
-                <span></span>
+    margin-bottom: 25px;
+}
 
-            </div>
+.contact-heading h2 {
+    font-size: 18px;
+}
 
+.line {
+    height: 1px;
 
-            <div class="contact-grid">
+    width: 80px;
 
+    background: #252d40;
+}
 
-                <!-- LINKEDIN -->
+.contact-grid {
+    display: grid;
 
-                <a
-                    href="https://www.linkedin.com/in/abhishek-patel-94ab81328"
-                    target="_blank"
-                    class="contact-card"
-                >
+    grid-template-columns: repeat(3, 1fr);
 
-                    <div class="social-icon linkedin">
-                        in
-                    </div>
+    gap: 15px;
+}
 
-                    <div class="contact-info">
+.contact-card {
+    position: relative;
 
-                        <strong>
-                            LinkedIn
-                        </strong>
+    display: flex;
 
-                        <span>
-                            Connect with me
-                        </span>
+    align-items: center;
 
-                    </div>
+    gap: 13px;
 
-                    <div class="external">
-                        ↗
-                    </div>
+    padding: 18px;
 
-                </a>
+    text-decoration: none;
 
+    border: 1px solid #20293d;
 
+    border-radius: 15px;
 
-                <!-- GITHUB -->
+    background: #0d1322;
 
-                <a
-                    href="https://github.com/24gcebit076"
-                    target="_blank"
-                    class="contact-card"
-                >
+    transition: 0.25s;
+}
 
-                    <div class="social-icon github">
-                        ◉
-                    </div>
+.contact-card:hover {
+    transform: translateY(-4px);
 
-                    <div class="contact-info">
+    border-color: #536dff;
 
-                        <strong>
-                            GitHub
-                        </strong>
+    background: #11182a;
+}
 
-                        <span>
-                            View my projects
-                        </span>
+.contact-icon {
+    width: 42px;
+    height: 42px;
 
-                    </div>
+    flex-shrink: 0;
 
-                    <div class="external">
-                        ↗
-                    </div>
+    display: flex;
 
-                </a>
+    align-items: center;
+    justify-content: center;
 
+    border-radius: 11px;
 
+    background: #182039;
 
-                <!-- EMAIL -->
+    color: #8da1ff;
 
-                <a
-                    href="mailto:abhishekvns220@gmail.com"
-                    class="contact-card"
-                >
+    font-weight: 800;
+}
 
-                    <div class="social-icon email">
-                        @
-                    </div>
+.contact-card h3 {
+    color: white;
 
-                    <div class="contact-info">
+    font-size: 14px;
+}
 
-                        <strong>
-                            Gmail
-                        </strong>
+.contact-card p {
+    margin-top: 4px;
 
-                        <span>
-                            abhishekvns220@gmail.com
-                        </span>
+    color: #737d91;
 
-                    </div>
+    font-size: 11px;
 
-                    <div class="external">
-                        ↗
-                    </div>
+    overflow: hidden;
 
-                </a>
+    text-overflow: ellipsis;
+}
 
-            </div>
+.contact-arrow {
+    margin-left: auto;
 
-        </section>
+    color: #6d7890;
+}
 
 
+/* ================= RESUME ================= */
 
-        <!-- GENERATED RESUME -->
+.resume-section {
+    margin-top: 45px;
 
-        {% if resume %}
+    padding: 30px;
 
-        <section class="result-card">
+    border: 1px solid #25304a;
 
-            <div class="result-header">
+    border-radius: 20px;
 
-                <div>
+    background: #0d1322;
+}
 
-                    <div class="success">
-                        ✓ Resume Generated
-                    </div>
+.success-badge {
+    display: inline-block;
 
-                    <h2>
-                        Your AI Generated Resume
-                    </h2>
+    padding: 6px 10px;
 
-                    <p>
-                        Your resume is ready. Review it below and download
-                        your PDF.
-                    </p>
+    border-radius: 20px;
 
-                </div>
+    background: rgba(34, 197, 94, 0.1);
 
-            </div>
+    color: #65d98a;
 
+    font-size: 11px;
 
-            <div class="resume-preview">
+    font-weight: 600;
 
-                <pre>{{ resume }}</pre>
+    margin-bottom: 12px;
+}
 
-            </div>
+.resume-header h2 {
+    font-size: 22px;
+}
 
+.resume-header p {
+    margin-top: 6px;
 
-            <form
-                method="POST"
-                action="/download"
-            >
+    color: #747e92;
 
-                <input
-                    type="hidden"
-                    name="resume"
-                    value="{{ resume }}"
-                >
+    font-size: 13px;
+}
 
-                <button
-                    type="submit"
-                    class="download-button"
-                >
+.resume-preview {
+    margin-top: 25px;
 
-                    📄 Download Resume PDF
+    max-height: 600px;
 
-                </button>
+    overflow-y: auto;
 
-            </form>
+    padding: 25px;
 
-        </section>
+    border-radius: 12px;
 
-        {% endif %}
+    background: #080c16;
 
-    </main>
+    border: 1px solid #1e273b;
+}
 
+.resume-preview pre {
+    white-space: pre-wrap;
 
+    word-wrap: break-word;
 
-    <!-- FOOTER -->
+    color: #cbd2df;
 
-    <footer>
+    font-family: "Inter", sans-serif;
 
-        <div class="footer-logo">
-            AI<span>Resume</span>
-        </div>
+    font-size: 13px;
 
-        <p>
-            Create smarter. Apply better. Get hired.
-        </p>
+    line-height: 1.7;
+}
 
-        <p class="copyright">
-            © 2026 AI Resume & Portfolio Builder
-        </p>
+.download-btn {
+    width: 100%;
 
-    </footer>
+    margin-top: 20px;
 
-</div>
+    padding: 15px;
 
-</body>
+    border: 1px solid #3b4c85;
 
-</html>
-```
+    border-radius: 12px;
+
+    background: #17213d;
+
+    color: #aebdff;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.download-btn:hover {
+    background: #202d50;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    border-top: 1px solid #151c2b;
+
+    color: #5d6678;
+
+    font-size: 11px;
+}
+
+footer p + p {
+    margin-top: 6px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    .header-badge {
+        display: none;
+    }
+
+    .container {
+        width: min(100% - 25px, 950px);
+
+        padding-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-section {
+        padding: 22px;
+    }
+}
